@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding: 20px;
+    border: 1px solid #eaebed;
+}
+.nav-logo {
+    width: 150px;
+    height: 60px;
+}
+.nav-img {
+    width: 40px;
+}
