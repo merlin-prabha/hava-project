@@ -1,5 +1,5 @@
 import {Component} from "react"
-import { Link } from "react-router-dom";
+
 import {
     Button,
     defaultTheme,
@@ -9,6 +9,7 @@ import {
 import "./index.css"
 import Header from "../Header"
 import Dashboard from "../Dashboard";
+import Details from "../Details";
 
 let columns = [
     { name: 'All Airports', uid: 'all' },
@@ -56,17 +57,15 @@ let columns = [
   ];
   
 class Airports extends Component {
+    state = {isDetailButtonClicked: false}
 
-    onClickCell = (item) => {
-        const {history} = this.props
-        const {id} = item
-        history.push(`/airport/${id}`)
-        console.log(item)
+    onClickCell = () => {
+        this.setState({isDetailButtonClicked: true})
     }
 
     renderAirportContainer = () => (
         <div className="airport-container">
-            <Provider theme={defaultTheme} colorScheme="light" backgroundColor="gray-75">
+            <Provider theme={defaultTheme} colorScheme="light" backgroundColor="gray-75" padding="size-700">
                 <div className="heading-button-container">
                     <h1 className="airport-heading">Airports</h1>                
                     <Button variant="primary" style="fill" padding="size-1600">+ Add new</Button>
@@ -74,8 +73,9 @@ class Airports extends Component {
                 <div className="table">
                     <TableView
                         aria-label="Example table with dynamic content"
-                        width="size-20000"
-                        selectionMode="single"
+                        width="size-30000"
+                        selectionMode="multiple"
+                        onAction={this.onClickCell}
                         >
                         <TableHeader columns={columns}>
                             {(column) => (
@@ -90,26 +90,20 @@ class Airports extends Component {
                         </TableHeader>
                         
                         <TableBody items={rows}>
-                            {(item) => (
-                            
-                            <Row onClick={this.onClickCell(item)}>
-                                
-                                {(columnKey) => <Cell>{item[columnKey]}</Cell>}
-                                
-                            </Row>
-                            
+                            {(item) => (                           
+                            <Row>                               
+                                {(columnKey) => <Cell>{item[columnKey]}</Cell>}                              
+                            </Row>                         
                             )}
-                        </TableBody>
-                        
-                    </TableView>
-                    <p>edit</p>
-                        <p>Delete</p>
+                        </TableBody>                        
+                    </TableView>                   
                 </div>
             </Provider>      
         </div>
     )
 
     render() {
+        const {isDetailButtonClicked} = this.state
         return (
             <div>
                 <Header />
@@ -118,7 +112,8 @@ class Airports extends Component {
                         <Dashboard />
                     </div>
                     <div className="airport">
-                        {this.renderAirportContainer()}
+                        {isDetailButtonClicked ? <Details /> : this.renderAirportContainer()}
+                        
                     </div>
                 </div>
             </div>

@@ -1,13 +1,6 @@
 * {
     font-family: "Roboto";
 }
-.detail-container {
-    display: flex;
-}
-.detail-dashboard {
-    width: 20%;
-}
-
 .detail-airport {
     width: 100%;
     padding: 30px;
@@ -52,13 +45,17 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+    margin-top: 40px;
 }
 .service-details-container {
-    width: 70%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     font-size: 25px;
-    margin-top: 40px;
+    
+}
+.terminal-img {
+    width: 200px;
 }

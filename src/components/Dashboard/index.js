@@ -19,7 +19,7 @@ const Dashboard = () => (
         <div className="db-container">
             <p className="dashboard-heading">Services</p>
             <Link to="/" className="link-element">
-              <button type="button" className="dashboard-btn">
+              <button type="button" className="dashboard-btn selected-button">
                 Airports
               </button>
             </Link>

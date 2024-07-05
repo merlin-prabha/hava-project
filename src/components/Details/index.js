@@ -5,8 +5,6 @@ import {Breadcrumbs, Item,defaultTheme, Provider, TabList, Button, Tabs, TextFie
 import { BsThreeDots } from "react-icons/bs";
 import { FiUpload } from "react-icons/fi";
 import "./index.css"
-import Header from "../Header"
-import Dashboard from "../Dashboard";
 
 const terminalDetails = [
     {
@@ -25,7 +23,7 @@ class Details extends Component {
         return (
         <div className="terminal-card">
             <div className="img-content-container">
-                <img src="https://res.cloudinary.com/dksovm4dg/image/upload/v1720162801/Image_foz5nt.png" alt="terminal" />
+                <img src="https://res.cloudinary.com/dksovm4dg/image/upload/v1720162801/Image_foz5nt.png" alt="terminal" className="terminal-img" />
                 <div className="content-container">
                     <div className="heading-icon-container">
                         <h1>{title}</h1>
@@ -38,7 +36,7 @@ class Details extends Component {
     )}
 
     renderDetails = () => (
-        <Provider theme={defaultTheme} colorScheme="light" backgroundColor="gray-75">
+        <Provider theme={defaultTheme} colorScheme="light" backgroundColor="gray-75" padding="size-700">
             <Breadcrumbs size="L">
                 <Item key="home">Airports</Item>
                 <Item key="trendy">Indira Gandhi International Airport</Item>
@@ -97,9 +95,9 @@ class Details extends Component {
                         )}
                     </DialogTrigger>
                     <Switch>Show image</Switch>
-                    <TextField label="Description" width="size-3600" maxWidth="100%" defaultValue="type here" />
+                    <TextField label="Description" width="size-7000" maxWidth="100%" defaultValue="type here" />
                 </div>
-                <Button variant="primary" style="fill" padding="size-1600">Save</Button>
+                <Button variant="primary" style="fill" padding="size-1600" marginEnd="size-900">Save</Button>
             </div>
             <p>Lounge</p>
             <hr className="hr-line" />
@@ -111,17 +109,9 @@ class Details extends Component {
 
     render() {
         return (
-            <div>
-                <Header />
-                <div className="detail-container">
-                    <div className="detail-dashboard">                    
-                        <Dashboard />
-                    </div>
-                    <div className="detail-airport">
-                        {this.renderDetails()}
-                    </div>
-                </div>
-            </div>
+            <div className="detail-airport">
+                {this.renderDetails()}
+            </div>               
         )
     }
 }
