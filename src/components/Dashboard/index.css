@@ -1,5 +1,4 @@
 .dashboard-container {
-    width: 30%;
     padding: 30px;
     border: 1px solid #eaebed;
     height: 100vh;
@@ -21,4 +20,19 @@
 }
 .dashboard-label {
     font-size: 20px;
+}
+.db-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.link-element {
+    text-decoration: none;
+}
+.dashboard-btn {
+    border-width: 0px;
+    background-color: transparent;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 20px;
 }

@@ -1,0 +1,29 @@
+* {
+    font-family: "Roboto";
+}
+.home-container {
+    display: flex;
+}
+.dashboard {
+    width: 20%;
+}
+.heading-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.airport {
+    width: 100%;
+    padding: 30px;
+    padding-right: 50px;
+}
+.table {
+    width: 70%;
+    font-size: 25px;
+}
+.table-text {
+    font-size: 25px;
+}
+.airport-heading {
+    font-size: 30px;
+}
